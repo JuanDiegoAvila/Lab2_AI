@@ -8,6 +8,7 @@ packages = [{include = "lab2_ia"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+pgmpy = "^0.1.15"
 
 
 [build-system]
