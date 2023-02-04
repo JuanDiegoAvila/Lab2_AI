@@ -12,13 +12,16 @@ Los métodos que se encuentran en esta librería son:
     Un ejemplo de esta llamada es: `bayes.enumeracion(['R'], {'M': 1,})` siendo bayes una instancia de la red bayesiana.
 
     El valor de retorno es un array con los valores resultantes del metodo de pgmpy `self.inference.query(variables=variables, evidence=evidence)`
-            +------+----------+
-            | R    |   phi(R) |
-            +======+==========+
-            | R(0) |   0.2131 | -> El primer valor en el arreglo del return
-            +------+----------+
-            | R(1) |   0.7869 | -> El segundo valor en el arreglo del return
-            +------+----------+
+           
+```python
++------+----------+
+| R    |   phi(R) |
++======+==========+
+| R(0) |   0.2131 | -> El primer valor en el arreglo del return
++------+----------+
+| R(1) |   0.7869 | -> El segundo valor en el arreglo del return
++------+----------+
+```
 
 - `obtener_factores`: obtine las dependencias independientes del modelo bayesiano utiliza la funcion get_independecies del objeto model
 
@@ -77,8 +80,7 @@ Los métodos que se encuentran en esta librería son:
 +------+------+------+------+------+------+------+------+------+
 | R(1) | 0.04 | 0.14 | 0.06 | 0.18 | 0.76 | 0.85 | 0.9  | 0.95 |
 +------+------+------+------+------+------+------+------+------+
-    
-    ```
+```
 
 - `completamente_descrita`: Esta funcion devuelve el resultado booleano (true/false) de la comprobacion de si el modelo esta correctamente definido. Utiliza la funcion de pgmpy `check_model()`.
 
@@ -86,7 +88,7 @@ Los métodos que se encuentran en esta librería son:
 
 Para crear una instancia del modelo bayesiano se debe de crear un diccionario de la siguiente forma: 
 
-```
+```python
 {
     'nodos' : ...
     'edge' : ...
@@ -95,7 +97,7 @@ Para crear una instancia del modelo bayesiano se debe de crear un diccionario de
 ```
 
 Un ejemplo de esta implementación es lo siguiente:
-```
+```python
 parametros = {
     'nodos': ['M', 'U', 'R', 'B', 'S'],
     'edge': [['M','R'], ['U','R'], ['B','R'], ['B','S'], ['R','S']],
