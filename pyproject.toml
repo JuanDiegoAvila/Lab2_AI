@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "lab2-ia"
-version = "0.1.0"
+name = "fcaBayesian"
+version = "0.2.0"
 description = ""
 authors = ["JuanDiegoAvila <avi20090@uvg.edu.gt>", "Juan Angel Carrera <car20593@uvg.edu.gt>", "Diego Jose Franco <fra20240@uvg.edu.gt>"]
 readme = "README.md"
-packages = [{include = "lab2_ia"}]
+packages = [{include = "fcaBayesian"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -14,3 +14,6 @@ pgmpy = "^0.1.15"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+fcaBayesian = 'fcaBayesian:main'

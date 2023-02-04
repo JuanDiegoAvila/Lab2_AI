@@ -1,5 +1,6 @@
 import pgmpy
 from pgmpy.models import BayesianModel
+from pgmpy.inference import VariableElimination
 from pgmpy.factors.discrete import TabularCPD
 
 class BayesModel:
@@ -13,7 +14,7 @@ class BayesModel:
     '''
     def __init__(self, parameters):
         self.parameters = parameters
-        self.model = BayesianModel(parameters)
+        self.model = BayesianModel()
         self.inference = None
     
 
@@ -28,25 +29,33 @@ class BayesModel:
             self.model.add_edge(edge[0], edge[1])
 
         
-        for probabilidad in self.parameters['probabilidad']:
-            temp_cpd = TabularCPD(probabilidad[0], 2,  values = [probabilidad[1]])
-            self.model.add_cpd(temp_cpd)
+        for probabilidad in self.parameters['probabilidad']: 
 
+            temp_cpd = TabularCPD(probabilidad[0], 2,  values = probabilidad[1], evidence=probabilidad[2], evidence_card=probabilidad[3])
+            self.model.add_cpds(temp_cpd)
+
+        self.inference = VariableElimination(self.model)
+        
     def get_inference(self):    
         return self.inference
 
     def get_model(self):
         return self.model
 
-    def variable_elimination(self, varibles, evidence):
-        self.inference = pgmpy.inference.VariableElimination(self.model)
-        return self.inference.query(variables=varibles, evidence=evidence)
+    def enumeracion(self, variables, evidence):
+        en = self.inference.query(variables=variables, evidence=evidence)
+        return en.values
     
     def obtener_factores(self):
-        return self.model.get_factors()
+        return self.model.get_independencies()
 
     def representacion_compacta(self):
-        return self.model.to_string()
+
+        cpd_string = ""
+        for cpd in self.model.get_cpds():
+            cpd_string += str(cpd) 
+
+        return cpd_string
 
     def completamente_descrita(self):
         return self.model.check_model()
