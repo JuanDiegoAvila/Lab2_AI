@@ -1,4 +1,3 @@
-import pgmpy
 from pgmpy.models import BayesianModel
 from pgmpy.inference import VariableElimination
 from pgmpy.factors.discrete import TabularCPD
@@ -36,21 +35,15 @@ class BayesModel:
 
         self.inference = VariableElimination(self.model)
         
-    def get_inference(self):    
-        return self.inference
-
-    def get_model(self):
-        return self.model
-
     def enumeracion(self, variables, evidence):
         en = self.inference.query(variables=variables, evidence=evidence)
+        print(en)
         return en.values
     
     def obtener_factores(self):
         return self.model.get_independencies()
 
     def representacion_compacta(self):
-
         cpd_string = ""
         for cpd in self.model.get_cpds():
             cpd_string += str(cpd) 
