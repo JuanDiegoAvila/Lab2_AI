@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fcaBayesian"
-version = "0.0.0"
+version = "0.0.1"
 description = ""
 authors = ["JuanDiegoAvila <avi20090@uvg.edu.gt>", "Juan Angel Carrera <car20593@uvg.edu.gt>", "Diego Jose Franco <fra20240@uvg.edu.gt>"]
 readme = "README.md"
