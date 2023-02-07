@@ -11,6 +11,9 @@ python = "^3.10"
 pgmpy = "^0.1.15"
 
 
+[tool.poetry.group.dev.dependencies]
+python-semantic-release = "^7.33.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
