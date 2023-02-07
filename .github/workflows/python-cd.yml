@@ -26,7 +26,7 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
           git config user.name github-actions
-          git config user.email github-actions@gitb.com
+          git config user.email github-actions@github.com
 
     - name: publish to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
