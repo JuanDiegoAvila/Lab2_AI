@@ -28,7 +28,7 @@ jobs:
         python-version: '3.x'
         
     - name: Install poetry
-      run: pip install poetry
+      run: python -m pip install poetry
 
     - name: Poetry config
       env:
