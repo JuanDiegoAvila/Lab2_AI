@@ -28,7 +28,7 @@ jobs:
         python-version: '3.x'
 
     - name: Install poetry
-      uses: pip install poetry
+      run: pip install poetry
 
     - name: Use Python Semantic Release to prepare release
       env:
