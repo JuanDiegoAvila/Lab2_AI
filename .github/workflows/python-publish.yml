@@ -33,7 +33,7 @@ jobs:
     - name: Poetry config
       env:
         Pypi: ${{ secrets.PYPI_API_TOKEN }}
-      run: poetry config pypi-token.pypi $Pypi
+      run: poetry config Pypi.pypi $Pypi
 
 
     - name: Build and publish
