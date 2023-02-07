@@ -3,6 +3,7 @@
 Este laboratorio es una implementacion de las redes bayesianas en python. La librerí, con nombre fcaBayesian utiliza 
 la libería de pgmpy para poder hacer todos los análisis de las redes bayesianas.
 
+
 Los métodos que se encuentran en esta librería son:
 
 - `build_model()`: utiliza los valores obtenidos en los parametros del constructor y crea el modelo de la red bayesiana.
